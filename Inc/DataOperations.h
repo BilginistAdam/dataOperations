@@ -111,8 +111,8 @@ static inline void putU16_LSBF(uint8_t * Buffer, uint16_t offset, uint16_t data)
  */
 static inline void putU16_MSBF(uint8_t * Buffer, uint16_t offset, uint16_t data){
 
-  Buffer[offset + 2] = (data & 0xFF00) >> 8;
-  Buffer[offset + 3] = (data & 0x00FF) >> 0;
+  Buffer[offset + 0] = (data & 0xFF00) >> 8;
+  Buffer[offset + 1] = (data & 0x00FF) >> 0;
 }
 
 
@@ -202,10 +202,12 @@ static inline uint16_t makeU16_LSBF(uint8_t * Buffer, uint16_t offset){
  * @return uint16_t The value of the buffer merger operations.
  */
 static inline uint16_t makeU16_MSBF(uint8_t * Buffer, uint16_t offset){
+
     uint16_t temp;
-    /*!TODO : Wrong!*/
+
     temp = Buffer[offset + 0] << 8;
     temp += Buffer[offset + 1] << 0;
+
 
     return temp;
 }

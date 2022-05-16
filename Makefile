@@ -10,7 +10,6 @@ TARGET = dataOperations
 DEBUG = 1
 # optimization
 OPT = -Og
-
 #######################################
 # paths
 #######################################

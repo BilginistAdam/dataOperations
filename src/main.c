@@ -66,7 +66,7 @@ int main(void){
  *               Length of the buffer.
  */
 void printBuffer(uint8_t * Buffer, uint16_t len){
-    printf("Buffer Value : \n\r");
+    printf("Buffer Value :");
 
     for (uint16_t i = 0; i < len; i++)
     {   
