@@ -18,6 +18,7 @@
 #define BUFFER_SIZE 10
 #define U32_TEST_VALUE 125120100
 #define U16_TEST_VALUE 10526
+#define FLOAT_TEST_VALUE 10.52525F
 
 
 void printBuffer(uint8_t * Buffer, uint16_t len);
@@ -25,6 +26,8 @@ void test_u32LSBF(void);
 void test_u32MSBF(void);
 void test_u16LSBF(void);
 void test_u16MSBF(void);
+void test_f16MSBF(void);
+void test_f16LSBF(void);
 
 /**
  * @brief The application entry point.
@@ -52,6 +55,16 @@ int main(void){
     printf("------------------------------------------------------------\n\r");
     printf("U16 MSBF Test Function Start: \n\r");
     test_u16MSBF();
+
+    // Test function for F16 LSBF Functions
+    printf("------------------------------------------------------------\n\r");
+    printf("F16 LSBF Test Function Start: \n\r");
+    test_f16LSBF();
+
+    // Test function for F16 MSBF Functions
+    printf("------------------------------------------------------------\n\r");
+    printf("F16 MSBF Test Function Start: \n\r");
+    test_f16MSBF();
 
     return 0;
 }
@@ -204,3 +217,67 @@ void test_u16MSBF(void){
         printf("False!\n\r");
     }
 }
+
+/**
+ * @brief Test function for the float 16 put and make MSBF.
+ * 
+ */
+void test_f16MSBF(void){
+    float temp = 0;
+    uint8_t u8Buffer[BUFFER_SIZE];
+    memset(u8Buffer, 0, BUFFER_SIZE);
+
+    printf("Empty Buffer created : ");
+    printBuffer(u8Buffer, BUFFER_SIZE);
+
+    printf("Put F16 Test: %f\n\r", FLOAT_TEST_VALUE);
+    putF16_MSBF(u8Buffer, 0, (float) FLOAT_TEST_VALUE);
+
+    printf("After Operation buffer Parameter:\n\r");
+    printBuffer(u8Buffer, BUFFER_SIZE);
+
+    printf("Make F16 Test:\n\r");
+
+    temp = (float) makeF16_MSBF(u8Buffer, 0);
+    printf("makeF16_MSBF : %f\n\r", temp);
+
+    printf("Result : ");
+    if (temp == FLOAT_TEST_VALUE){
+        printf("Correct!\n\r");
+    }else{
+        printf("False!\n\r");
+    }
+}
+
+/**
+ * @brief Test function for the float 16 put and make LSBF.
+ * 
+ */
+void test_f16LSBF(void){
+    float temp = 0;
+    uint8_t u8Buffer[BUFFER_SIZE];
+    memset(u8Buffer, 0, BUFFER_SIZE);
+
+    printf("Empty Buffer created : ");
+    printBuffer(u8Buffer, BUFFER_SIZE);
+
+    printf("Put F16 Test: %f\n\r", FLOAT_TEST_VALUE);
+    putF16_LSBF(u8Buffer, 0, (float) FLOAT_TEST_VALUE);
+
+    printf("After Operation buffer Parameter:\n\r");
+    printBuffer(u8Buffer, BUFFER_SIZE);
+
+    printf("Make F16 Test:\n\r");
+
+    temp = (float) makeF16_LSBF(u8Buffer, 0);
+    printf("makeF16_MSBF : %f\n\r", temp);
+
+    printf("Result : ");
+    if (temp == FLOAT_TEST_VALUE){
+        printf("Correct!\n\r");
+    }else{
+        printf("False!\n\r");
+    }
+}
+
+// EOF
