@@ -20,7 +20,7 @@
 /**********************************************************************
  * Macros
  *********************************************************************/
-#define FRACTION_PRECISION  100000U  /**< */
+#define FRACTION_PRECISION  100000U  /**< the separation and merging operation precision value for float type operations.*/
 
 /**********************************************************************
  * Type Definitions
