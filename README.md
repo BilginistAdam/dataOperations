@@ -3,8 +3,8 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/bilginistAdam/dataOperation/pulls)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/bilginistAdam/dataOperation/pulls)
+[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/bilginistAdam/dataOperations/pulls)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/bilginistAdam/dataOperations/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
 </div>
@@ -45,7 +45,7 @@ Addition Note: You can put the data in the buffer as you want, but you have to m
 Download the' dataOperation.h' file, copy your project, and include to your project.
 
 ```
-#include "dataOperation.h"
+#include "dataOperations.h"
 ```
 
 After it is included, set the FLOAT_PRECISION parameter to your requirement in the macros section of the file. 
